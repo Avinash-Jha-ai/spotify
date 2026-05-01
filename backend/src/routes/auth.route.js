@@ -15,7 +15,7 @@ router.post("/register/artist",upload.single("avatar"),artistRegister);
 router.post("/register",upload.single("avatar"),register);
 router.post("/login",login);
 router.get("/me",authenticateUser,getMe);
-router.get("/logout",authenticateUser,logout);
+router.get("/logout",authenticateUser, logout);
 router.post("/google",socialLogin);
 
 

@@ -48,10 +48,11 @@ export const useAuth = () => {
 
     async function handleLogout() {
         try {
-            await logout()
-            dispatch(logoutUser())
+            await logout();
         } catch (err) {
-            console.log(err)
+            console.log("Logout API failed:", err);
+        } finally {
+            dispatch(logoutUser());
         }
     }
 

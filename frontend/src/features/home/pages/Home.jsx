@@ -463,10 +463,11 @@ export default function Home() {
     const handleLogout = async () => {
         try {
             await logout();
+        } catch (err) {
+            console.error("Logout API failed:", err);
+        } finally {
             dispatch(setUser(null));
             navigate('/login');
-        } catch (err) {
-            console.error("Logout failed:", err);
         }
     };
 

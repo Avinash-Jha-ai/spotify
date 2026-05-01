@@ -92,7 +92,7 @@ export default function Dashboard() {
                         <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.4)]">
                             <Music className="text-white" size={24} />
                         </div>
-                        <h1 className="text-2xl font-black tracking-tighter italic">NOCTURNE <span className="text-red-600 not-italic">BACKSTAGE</span></h1>
+                        <h1 className="text-2xl font-black tracking-tighter italic">SPOTIFY <span className="text-red-600 not-italic">BACKSTAGE</span></h1>
                     </div>
 
                     <div className="flex items-center gap-6">

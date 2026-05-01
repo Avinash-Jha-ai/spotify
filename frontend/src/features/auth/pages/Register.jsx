@@ -58,7 +58,7 @@ export default function Register() {
       {/* Glassmorphic Container */}
       <div className="relative z-10 w-full max-w-lg p-10 mx-4 bg-[#1a1a1a]/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(255,0,50,0.1)] my-8 animate-fade-in-up">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white tracking-tight mb-2">Nocturne</h1>
+          <h1 className="text-4xl font-bold text-white tracking-tight mb-2">Spotify</h1>
           <p className="text-gray-400 text-sm">Join the premium experience</p>
         </div>
 

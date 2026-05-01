@@ -51,7 +51,7 @@ export default function Login() {
 
       <div className="relative z-10 w-full max-w-md p-10 mx-4 bg-[#1a1a1a]/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(255,0,50,0.1)] animate-fade-in-up">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-black text-white tracking-tighter mb-2 italic">NOCTURNE <span className="text-red-600 not-italic">ARTISTS</span></h1>
+          <h1 className="text-4xl font-black text-white tracking-tighter mb-2 italic">SPOTIFY <span className="text-red-600 not-italic">ARTISTS</span></h1>
           <p className="text-gray-400 text-sm uppercase tracking-widest">Backstage access</p>
         </div>
 
@@ -71,7 +71,7 @@ export default function Login() {
               value={formData.email}
               onChange={handleChange}
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors"
-              placeholder="artist@nocturne.com"
+              placeholder="artist@spotify.com"
             />
           </div>
 

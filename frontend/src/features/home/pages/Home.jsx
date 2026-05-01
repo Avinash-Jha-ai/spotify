@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Play, Pause, SkipBack, SkipForward, Volume2, Music, VolumeX, Volume1, X, Calendar, User, Info, Share2, Heart, ArrowLeft, Disc, Plus, Search, Library, ListMusic, Trash2, Camera, Check, Move } from 'lucide-react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, Music, VolumeX, Volume1, X, Calendar, User, Info, Share2, Heart, ArrowLeft, Disc, Plus, Search, Library, ListMusic, Trash2, Camera, Check, Move, LogOut } from 'lucide-react';
 import Cropper from 'react-easy-crop';
 import { getHomeSongs, likeSong, getSongsByArtist, getLikedSongs, searchSongs } from '../service/song.api';
 import { createPlaylist, getUserPlaylists, getPlaylistById, addSongToPlaylist, deletePlaylist } from '../service/playlist.api';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../auth/service/auth.api';
+import { setUser } from '../../auth/states/auth.slice';
 
 export default function Home() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const user = useSelector(state => state.auth.user);
     const [songs, setSongs] = useState([]);
     const [randomSongs, setRandomSongs] = useState([]);
@@ -456,6 +460,16 @@ export default function Home() {
         }
     };
 
+    const handleLogout = async () => {
+        try {
+            await logout();
+            dispatch(setUser(null));
+            navigate('/login');
+        } catch (err) {
+            console.error("Logout failed:", err);
+        }
+    };
+
     const isSongLiked = (song) => {
         return likedSongIds.has(song?._id);
     };
@@ -653,9 +667,18 @@ export default function Home() {
                         </div>
 
                         {user && (
-                            <div className="flex items-center gap-4 bg-white/[0.03] p-1.5 pr-5 rounded-full border border-white/5">
-                                <img src={user.avatar} alt="avatar" className="w-8 h-8 rounded-full border-2 border-red-500/50 object-cover" />
-                                <span className="text-xs font-black tracking-tight uppercase text-gray-400">{user.username}</span>
+                            <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-4 bg-white/[0.03] p-1.5 pr-5 rounded-full border border-white/5">
+                                    <img src={user.avatar} alt="avatar" className="w-8 h-8 rounded-full border-2 border-red-500/50 object-cover" />
+                                    <span className="text-xs font-black tracking-tight uppercase text-gray-400">{user.username}</span>
+                                </div>
+                                <button 
+                                    onClick={handleLogout}
+                                    className="p-3 hover:bg-red-600/10 text-gray-400 hover:text-red-500 rounded-full border border-white/5 transition-all active:scale-95 group"
+                                    title="Logout"
+                                >
+                                    <LogOut size={18} className="group-hover:scale-110 transition-transform" />
+                                </button>
                             </div>
                         )}
                     </header>

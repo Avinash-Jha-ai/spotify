@@ -102,9 +102,10 @@ export default function Dashboard() {
                         </div>
                         <button 
                             onClick={handleLogout}
-                            className="p-2 hover:bg-white/5 rounded-full text-gray-400 hover:text-white transition-colors"
+                            className="p-2 hover:bg-red-600/10 text-gray-400 hover:text-red-500 rounded-full transition-colors group"
+                            title="Logout"
                         >
-                            <LogOut size={20} />
+                            <LogOut size={20} className="group-hover:scale-110 transition-transform" />
                         </button>
                     </div>
                 </div>

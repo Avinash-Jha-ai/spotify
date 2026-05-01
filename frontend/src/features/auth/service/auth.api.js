@@ -42,3 +42,8 @@ export async function getMe() {
 
     return response.data
 }
+
+export async function logout() {
+    const response = await authApiInstance.get("/logout")
+    return response.data
+}
